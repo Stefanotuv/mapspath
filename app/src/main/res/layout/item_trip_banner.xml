@@ -1,57 +1,42 @@
 <!-- item_trip_banner.xml -->
 <!-- item_trip_banner.xml -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     android:padding="16dp"
     android:background="@drawable/trip_tile_background">
 
-    <!-- Add ImageView for the map image -->
-    <ImageView
-        android:id="@+id/mapImageView"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:src="@drawable/map_placeholder" />
-
-    <!-- Customize the layout to display trip details here -->
-    <LinearLayout
-        android:layout_width="match_parent"
+    <!-- Show the trip details -->
+    <TextView
+        android:id="@+id/tvTripName"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginStart="16dp">
+        android:text="Trip Name"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/tvTripName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Trip Name"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+    <TextView
+        android:id="@+id/tvTripDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date"
+        android:textSize="16sp" />
 
-        <!-- Add other TextViews for trip details (e.g., date, distance, duration) -->
-        <!-- Example: -->
-        <!--
-        <TextView
-            android:id="@+id/tvTripDate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="July 22, 2023" />
+    <TextView
+        android:id="@+id/tvTripDistance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Distance"
+        android:textSize="16sp" />
 
-        <TextView
-            android:id="@+id/tvTripDistance"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="2.5 km" />
-
-        <TextView
-            android:id="@+id/tvTripDuration"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="30 min" />
-        -->
-
-    </LinearLayout>
+    <TextView
+        android:id="@+id/tvTripDuration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Duration"
+        android:textSize="16sp" />
 
 </LinearLayout>
+
 

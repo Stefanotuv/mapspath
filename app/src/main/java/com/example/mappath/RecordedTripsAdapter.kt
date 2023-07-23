@@ -32,29 +32,31 @@ class RecordedTripsAdapter(private val recordedTrips: List<RecordedTrip>) :
 
         // Bind the trip details to the ViewHolder's views
         holder.tvTripName.text = recordedTrip.tripName
-        // Bind other trip details as needed
+        holder.tvTripDate.text = "Date: ${recordedTrip.date}"
+        holder.tvTripDistance.text = "Distance: ${recordedTrip.distance}"
+        holder.tvTripDuration.text = "Duration: ${recordedTrip.duration}"
 
-        // You can set the map image or any other map-related views here
-        // For simplicity, let's use a placeholder image
-        holder.mapImageView.setImageResource(R.drawable.map_placeholder)
-
-        // Handle the click on the item to navigate to the trip details activity
+        // Handle click on the item to navigate to the details activity
         holder.itemView.setOnClickListener {
-            // Start the TripDetailsActivity with the selected recordedTrip's locationList
-            val intent = Intent(holder.itemView.context, TripDetailsActivity::class.java)
+            // Start the TripDetailsActivity with the selected trip's locationList
+            // You can pass the locationList as an intent extra or store it in a ViewModel
+            // and retrieve it in the TripDetailsActivity
+            val intent = Intent(it.context, TripDetailsActivity::class.java)
             intent.putParcelableArrayListExtra("locationList", ArrayList(recordedTrip.locationList))
-            holder.itemView.context.startActivity(intent)
+            it.context.startActivity(intent)
         }
     }
-
     override fun getItemCount(): Int {
         return recordedTrips.size
     }
 
     class RecordedTripViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        // Customize the ViewHolder's views here (e.g., TextViews, ImageViews)
+        // Existing views
         val tvTripName: TextView = itemView.findViewById(R.id.tvTripName)
-        val mapImageView: ImageView = itemView.findViewById(R.id.mapImageView)
-        // Add other views for trip details as needed
+
+        // New views for trip details
+        val tvTripDate: TextView = itemView.findViewById(R.id.tvTripDate)
+        val tvTripDistance: TextView = itemView.findViewById(R.id.tvTripDistance)
+        val tvTripDuration: TextView = itemView.findViewById(R.id.tvTripDuration)
     }
 }

@@ -1,0 +1,5 @@
+<!-- res/values/dimens.xml -->
+<resources>
+    <dimen name="horizontal_item_spacing">8dp</dimen> <!-- Customize the horizontal spacing value as needed -->
+    <dimen name="vertical_item_spacing">8dp</dimen> <!-- Customize the vertical spacing value as needed -->
+</resources>

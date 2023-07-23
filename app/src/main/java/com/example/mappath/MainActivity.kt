@@ -29,6 +29,7 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        window.statusBarColor = Color.TRANSPARENT
         setContentView(R.layout.activity_main)
 
         val mapFragment = supportFragmentManager.findFragmentById(R.id.mapFragment) as SupportMapFragment
@@ -51,6 +52,11 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
             btnRecord.isEnabled = true
             btnStop.isEnabled = false
             btnStop.visibility = Button.GONE
+        }
+        val btnViewRecordedTrips = findViewById<Button>(R.id.btnViewRecordedTrips)
+        btnViewRecordedTrips.setOnClickListener {
+            val intent = Intent(this, RecordedTripsActivity::class.java)
+            startActivity(intent)
         }
     }
 

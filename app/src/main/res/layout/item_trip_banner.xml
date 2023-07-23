@@ -1,0 +1,20 @@
+<!-- item_trip_banner.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@drawable/trip_tile_background">
+
+    <!-- Customize the layout to display trip details here -->
+    <TextView
+        android:id="@+id/tvTripName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Trip Name"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <!-- Add other trip details here (e.g., date, distance, duration) -->
+
+</LinearLayout>

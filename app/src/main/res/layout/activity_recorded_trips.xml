@@ -10,8 +10,9 @@
         android:layout_height="match_parent"
         android:clipToPadding="false"
         android:overScrollMode="never"
-        android:background="@android:color/transparent" />
-
+        android:background="@android:color/transparent"
+        android:padding="16dp" />
+    <!-- Add padding to the RecyclerView -->
 </RelativeLayout>
 
 

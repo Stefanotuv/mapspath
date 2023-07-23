@@ -1,12 +1,18 @@
+package com.example.mappath
+
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mappath.R
 import com.example.mappath.RecordedTrip
 
-class RecordedTripsAdapter(private val recordedTrips: List<RecordedTrip>) : RecyclerView.Adapter<RecordedTripsAdapter.RecordedTripViewHolder>() {
+// RecordedTripsAdapter.kt
+class RecordedTripsAdapter(private val recordedTrips: List<RecordedTrip>) :
+    RecyclerView.Adapter<RecordedTripsAdapter.RecordedTripViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecordedTripViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_trip_banner, parent, false)
@@ -27,6 +33,18 @@ class RecordedTripsAdapter(private val recordedTrips: List<RecordedTrip>) : Recy
         // Bind the trip details to the ViewHolder's views
         holder.tvTripName.text = recordedTrip.tripName
         // Bind other trip details as needed
+
+        // You can set the map image or any other map-related views here
+        // For simplicity, let's use a placeholder image
+        holder.mapImageView.setImageResource(R.drawable.map_placeholder)
+
+        // Handle the click on the item to navigate to the trip details activity
+        holder.itemView.setOnClickListener {
+            // Start the TripDetailsActivity with the selected recordedTrip's locationList
+            val intent = Intent(holder.itemView.context, TripDetailsActivity::class.java)
+            intent.putParcelableArrayListExtra("locationList", ArrayList(recordedTrip.locationList))
+            holder.itemView.context.startActivity(intent)
+        }
     }
 
     override fun getItemCount(): Int {
@@ -36,6 +54,7 @@ class RecordedTripsAdapter(private val recordedTrips: List<RecordedTrip>) : Recy
     class RecordedTripViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         // Customize the ViewHolder's views here (e.g., TextViews, ImageViews)
         val tvTripName: TextView = itemView.findViewById(R.id.tvTripName)
+        val mapImageView: ImageView = itemView.findViewById(R.id.mapImageView)
         // Add other views for trip details as needed
     }
 }
